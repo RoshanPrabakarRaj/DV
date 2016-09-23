@@ -52,3 +52,4 @@ p+geom_point()+scale_colour_manual(values=myPalette)+geom_text(hjust=-0.1,vjust=
 p + geom_point(aes(shape=factor(victory), size=total))+geom_text(aes(colour=factor(year),label=player), position = position_jitter(width=5, height=1.5) )+facet_grid(~year)
 p<-ggplot(transform(sample,panel=cut(year,seq(2004,2014,by=1),include.lowest=T)),aes(winner,error))
 p+geom_point(aes(shape=factor(victory),size=total))+geom_line(aes(color=factor(year)))+geom_text(aes(colour=factor(year),label=player),position=position_jitter(width=8,height=1))+facet_grid(~year)+theme(panel.background=element_rect(fill="white"))+facet_wrap(~panel,scales='free')
+p+geom_point(aes(shape=factor(victory),size=total))+geom_line(aes(color=factor(year)))+geom_text(aes(colour=factor(year),label=player,size=90),position=position_jitter(width=5,height=4))+facet_grid(~year)+theme(panel.background=element_rect(fill="white"))+facet_wrap(~panel,scales='free',ncol=4)
