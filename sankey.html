@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['sankey','gauge']});
+      //google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawSecondChart);
+      google.charts.setOnLoadCallback(drawGaugeChart);
+    //  google.charts.setOnLoadCallback(drawGauge2Chart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'FROM');
+        data.addColumn('string', 'TO');
+              data.addColumn('number', 'Weight');
+        data.addRows([
+          [ '2012', 'FirstServe', 64 ],
+          [ '2012', 'Ace', 7.33 ],
+          [ '2012', 'Double', 1.17 ],
+          [ '2012', 'FastestServe', 207.7 ],
+          [ '2012', 'AverageFirstServe', 187.3 ],
+          [ '2012', 'AverageSecondServe', 145.83 ],
+          [ '2011', 'FirstServe', 66 ],
+          [ '2011', 'Ace', 5.28 ],
+          [ '2011', 'Double', 1.88 ],
+          [ '2011', 'FastestServe', 202.5 ],
+          [ '2011', 'AverageFirstServe', 181 ],
+          [ '2011', 'AverageSecondServe', 140.4 ],
+          [ '2010', 'FirstServe', 69 ],
+          [ '2010', 'Ace', 3.66 ],
+          [ '2010', 'Double', 4 ],
+          [ '2010', 'FastestServe', 202 ],
+          [ '2010', 'AverageFirstServe', 180.2 ],
+          [ '2010', 'AverageSecondServe', 150 ],
+          [ '2009', 'FirstServe', 66 ],
+          [ '2009', 'Ace', 7 ],
+          [ '2009', 'Double', 3 ],
+          [ '2009', 'FastestServe', 204 ],
+          [ '2009', 'AverageFirstServe', 185 ],
+          [ '2009', 'AverageSecondServe', 151 ],
+          [ '2008', 'FirstServe', 66 ],
+          [ '2008', 'Ace', 11.6 ],
+          [ '2008', 'Double', 2.2 ],
+          [ '2008', 'FastestServe', 204.4 ],
+          [ '2008', 'AverageFirstServe', 184.2 ],
+          [ '2008', 'AverageSecondServe', 157 ],
+          [ '2007', 'FirstServe', 63],
+          [ '2007', 'Ace', 10.16 ],
+          [ '2007', 'Double', 3.16 ],
+          [ '2007', 'FastestServe', 208.16 ],
+          [ '2007', 'AverageFirstServe', 192.5 ],
+          [ '2007', 'AverageSecondServe', 148.33 ],
+          [ '2005', 'FirstServe', 64 ],
+          [ '2005', 'Ace', 4.5 ],
+          [ '2005', 'Double', 4.5 ],
+          [ '2005', 'FastestServe', 207 ],
+          [ '2005', 'AverageFirstServe', 181.5 ],
+          [ '2005', 'AverageSecondServe', 147 ],
+          [ '2013', 'FirstServe', 70 ],
+          [ '2013', 'Ace', 7 ],
+          [ '2013', 'Double', 2 ],
+          [ '2013', 'FastestServe', 198.5 ],
+          [ '2013', 'AverageFirstServe', 176.5 ],
+          [ '2013', 'AverageSecondServe', 147.16 ],
+        ]);
+
+        // Sets chart options.
+        var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f',
+                  '#cab2d6', '#ffff99', '#1f78b4', '#33a02c'];
+
+        var options = {
+          height: 400,
+        sankey: {
+          node: {
+            colors: colors,
+            interactivity: true,
+            colorMode: 'unique'
+          },
+          link: {
+            colorMode: 'gradient',
+            colors: colors,
+            linkPadding: 50
+          }
+        }
+        };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+        chart.draw(data, options);
+      }
+      function drawSecondChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'FROM');
+        data.addColumn('string', 'TO');
+              data.addColumn('number', 'Weight');
+        data.addRows([
+          [ '2012', 'FirstServe', 68.33 ],
+          [ '2012', 'Ace', 9.67 ],
+          [ '2012', 'Double', 1.33 ],
+          [ '2012', 'FastestServe', 202.67 ],
+          [ '2012', 'AverageFirstServe', 182 ],
+          [ '2012', 'AverageSecondServe', 144 ],
+          [ '2011', 'FirstServe', 66 ],
+          [ '2011', 'Ace', 7.4 ],
+          [ '2011', 'Double', 2 ],
+          [ '2011', 'FastestServe', 208.6 ],
+          [ '2011', 'AverageFirstServe', 184.8 ],
+          [ '2011', 'AverageSecondServe', 142.4 ],
+          [ '2010', 'FirstServe', 61 ],
+          [ '2010', 'Ace', 14.8 ],
+          [ '2010', 'Double', 0.8 ],
+          [ '2010', 'FastestServe', 210.2 ],
+          [ '2010', 'AverageFirstServe', 187.8 ],
+          [ '2010', 'AverageSecondServe', 149.6 ],
+          [ '2009', 'FirstServe', 62 ],
+          [ '2009', 'Ace', 12.33 ],
+          [ '2009', 'Double', 2.5 ],
+          [ '2009', 'FastestServe', 209.33 ],
+          [ '2009', 'AverageFirstServe', 187.7 ],
+          [ '2009', 'AverageSecondServe', 145 ],
+          [ '2008', 'FirstServe', 65.71 ],
+          [ '2008', 'Ace', 12.42 ],
+          [ '2008', 'Double', 1.71 ],
+          [ '2008', 'FastestServe', 206 ],
+          [ '2008', 'AverageFirstServe', 181.28 ],
+          [ '2008', 'AverageSecondServe', 144.42 ],
+          [ '2007', 'FirstServe', 62.29],
+          [ '2007', 'Ace', 10.71 ],
+          [ '2007', 'Double', 1.57 ],
+          [ '2007', 'FastestServe', 207.42 ],
+          [ '2007', 'AverageFirstServe', 188.57 ],
+          [ '2007', 'AverageSecondServe', 164 ],
+          [ '2006', 'FirstServe', 63.5 ],
+          [ '2006', 'Ace', 6.5 ],
+          [ '2006', 'Double', 2.5 ],
+          [ '2006', 'FastestServe', 210.5 ],
+          [ '2006', 'AverageFirstServe', 187 ],
+          [ '2006', 'AverageSecondServe', 150 ],
+          [ '2005', 'FirstServe', 69 ],
+          [ '2005', 'Ace', 10.5 ],
+          [ '2005', 'Double', 2.5 ],
+          [ '2005', 'FastestServe', 206 ],
+          [ '2005', 'AverageFirstServe', 183 ],
+          [ '2005', 'AverageSecondServe', 142.5 ],
+          [ '2004', 'FirstServe', 61 ],
+          [ '2004', 'Ace', 10.5 ],
+          [ '2004', 'Double', 4 ],
+          [ '2004', 'FastestServe', 206 ],
+          [ '2004', 'AverageFirstServe', 183 ],
+          [ '2004', 'AverageSecondServe', 142.5 ],
+          [ '2003', 'FirstServe', 64.33 ],
+          [ '2003', 'Ace', 10 ],
+          [ '2003', 'Double', 2.7 ],
+          [ '2003', 'FastestServe', 199.6 ],
+          [ '2003', 'AverageFirstServe', 179 ],
+          [ '2003', 'AverageSecondServe', 140.66 ],
+          [ '2013', 'FirstServe', 56.33 ],
+          [ '2013', 'Ace', 8.67 ],
+          [ '2013', 'Double', 2.6 ],
+          [ '2013', 'FastestServe', 202.3 ],
+          [ '2013', 'AverageFirstServe', 180 ],
+          [ '2013', 'AverageSecondServe', 145 ],
+        ]);
+
+        // Sets chart options.
+        var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f',
+                  '#cab2d6', '#ffff99', '#1f78b4', '#33a02c'];
+
+        var options = {
+          height: 400,
+        sankey: {
+          node: {
+            colors: colors,
+            interactivity: true,
+            colorMode: 'unique'
+          },
+          link: {
+            colorMode: 'gradient',
+            colors: colors
+          }
+        }
+        };
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_ba'));
+        chart.draw(data, options);
+      }
+      function roshan1()
+      {
+      //  a=0
+
+        drawGaugeChart1();
+      }
+
+var dat =[
+['Label', 'Value'],
+['Losing',0],
+['Average', 0],
+['Winning', 0],
+]
+//a=1
+var da = [
+  ['Label', 'Value'],
+  ['Losing',32],
+  ['Average', 44],
+  ['Winning', 53],
+]
+
+function drawGaugeChart() {
+//console.error(a);
+data=google.visualization.arrayToDataTable(dat);
+data1=google.visualization.arrayToDataTable(da);
+
+
+var options = {
+width: 400, height: 120,
+redFrom: 0, redTo: 25,
+yellowFrom:25, yellowTo: 50,
+greenFrom:50, greenTo:100,
+minorTicks: 5
+};
+
+var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+chart.draw(data, options);
+
+setInterval(function() {
+//data.setValue(0, 1, 32);
+chart.draw(data1, options);
+}, 1000);
+setInterval(function() {
+//data.setValue(1, 1, 44);
+chart.draw(data1, options);
+}, 1000);
+setInterval(function() {
+//data.setValue(2, 1, 53);
+chart.draw(data1, options);
+}, 1000);
+
+}
+function drawGaugeChart1() {
+var dat =[
+['Label', 'Value'],
+['Losing',0],
+['Average', 0],
+['Winning', 0],
+]
+//console.error("hi da console")
+var da = [
+['Label', 'Value'],
+['Losing',38],
+['Average', 42],
+['Winning', 43],
+]
+//console.error(a);
+data=google.visualization.arrayToDataTable(dat);
+data1=google.visualization.arrayToDataTable(da);
+
+
+var options = {
+width: 400, height: 120,
+redFrom: 0, redTo: 25,
+yellowFrom:25, yellowTo: 50,
+greenFrom:50, greenTo:100,
+minorTicks: 5
+};
+
+var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+chart.draw(data, options);
+
+setInterval(function() {
+//data.setValue(0, 1, 32);
+chart.draw(data1, options);
+}, 1000);
+setInterval(function() {
+//data.setValue(1, 1, 44);
+chart.draw(data1, options);
+}, 1000);
+setInterval(function() {
+//data.setValue(2, 1, 53);
+chart.draw(data1, options);
+}, 1000);
+
+}
+function roshan()
+{
+//  a=0
+
+  drawGaugeChart2();
+}
+
+var dat =[
+['Label', 'Value'],
+['Losing',0],
+['Average', 0],
+['Winning', 0],
+]
+//a=1
+var da = [
+['Label', 'Value'],
+['Losing',32],
+['Average', 44],
+['Winning', 53],
+]
+
+function drawGaugeChart() {
+//console.error(a);
+data=google.visualization.arrayToDataTable(dat);
+data1=google.visualization.arrayToDataTable(da);
+
+
+var options = {
+width: 400, height: 120,
+redFrom: 0, redTo: 25,
+yellowFrom:25, yellowTo: 50,
+greenFrom:50, greenTo:100,
+minorTicks: 5
+};
+
+var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+chart.draw(data, options);
+
+setInterval(function() {
+//data.setValue(0, 1, 32);
+chart.draw(data1, options);
+}, 1000);
+setInterval(function() {
+//data.setValue(1, 1, 44);
+chart.draw(data1, options);
+}, 1000);
+setInterval(function() {
+//data.setValue(2, 1, 53);
+chart.draw(data1, options);
+}, 1000);
+
+}
+function drawGaugeChart2() {
+var dat =[
+['Label', 'Value'],
+['Losing',0],
+['Average', 0],
+['Winning', 0],
+]
+//console.error("hi da console")
+var da = [
+['Label', 'Value'],
+['Losing',32],
+['Average', 44],
+['Winning', 53],
+]
+//console.error(a);
+data=google.visualization.arrayToDataTable(dat);
+data1=google.visualization.arrayToDataTable(da);
+
+
+var options = {
+width: 400, height: 120,
+redFrom: 0, redTo: 25,
+yellowFrom:25, yellowTo: 50,
+greenFrom:50, greenTo:100,
+minorTicks: 5
+};
+
+var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+chart.draw(data, options);
+
+setInterval(function() {
+//data.setValue(0, 1, 32);
+chart.draw(data1, options);
+}, 1000);
+setInterval(function() {
+//data.setValue(1, 1, 44);
+chart.draw(data1, options);
+}, 1000);
+setInterval(function() {
+//data.setValue(2, 1, 53);
+chart.draw(data1, options);
+}, 1000);
+
+}
+
+    </script>
+    <!--table style="width=100%">
+    <tr>
+
+    <td>
+      <div id="sankey_basic" style="width: 100%; height: 100px;float:left"></div>
+    </td>
+    <td>
+      <div id="sankey_ba" style="width: 100%;height: 100px;float:right"></div>
+    </td>
+    </tr>
+    <tr>
+      <td>
+        assd
+      </td>
+
+
+
+    </tr>
+  </table-->
+
+<div style="margin-left:35px;margin-top:35px;margin-right:35px">
+    <div id="sankey_basic" style="width: 600px; height: 400px;float:left;border: 2px solid black;margin-top:75px"></div>
+    <div id="sankey_ba" style="width: 600px;height: 400px;float:right;border: 2px solid black;margin-top:75px"></div>
+    <div style="float:left">
+      <form action="">
+  <input type="radio" name="string" value="Novak Djokovic" onclick="roshan()"> Novak Djokovic<br>
+  <input type="radio" name="string" value="Roger Federer"onclick="roshan1()"> Roger Federer<br>
+
+</form>
+</div>
+
+    <!--button onclick="roshan()">Click Me!</button-->
+<div id="chart_div" style="width: 400px; height: 120px;float:right"></div>
+</div>
+
+</html>
